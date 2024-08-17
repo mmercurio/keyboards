@@ -208,6 +208,46 @@ void setup() {
   // can be permanently enabled via Chrysalis, so we should only disable it if
   // no configuration exists.
   SpaceCadetConfig.disableSpaceCadetIfUnconfigured();
+
+  // Tweak Qukey settings
+  // https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html
+
+  // issues (still):
+  // **1.** repeated home mod keys are missed
+  //   setMaxIntervalForTapRepeat(50) fixes this, but then there is no hold key to repeat at all.
+  //   - will try increasing to 100. same as 50
+  //   - trying 180: same as 200
+  //   - trying 170: worst of both. no repeat when (mostly) held and missing repeated presses!
+  //   - 175: mostly fixes hold and repeat, but repeat preses are mised
+  //   - 172: same as 175
+  // *** 160 kind of woorks. press and hold to repeat requires very rapid key presses to get hold and repeat working
+
+  //Qukeys.setHoldTimeout(1000);    // default 250
+  Qukeys.setOverlapThreshold(85);   // default 80
+  //Qukeys.setMinimumHoldTime(100);   // default 50
+  Qukeys.setMinimumPriorInterval(80); // default 75
+
+  // current default: 160
+  //Qukeys.setMaxIntervalForTapRepeat(160);  // default 200
+  // 160 works okay but occassionly suffers with missed quickly tapped repeated home row keys.
+
+  // experiment with 50: does it solve issued with repeated home row keys being missed?
+  //  50: absolutely no issue with repeatedly typed keys. but cannot hold key to repeat.
+  //*120: absolutely no issues with repeatedly typed keys. but hold and repeat is difficult
+  //      but doable with practice. Likely 120 is the MINIMUM tolerable value to use.
+  //      And will likely want to experiment with higher values.
+  //
+  // 150: NO! quickly typed repeated home row keys such as S and D
+  //     in words such as "less" and "add" are missed. Specifically
+  //     trying to type "less less less" yields "les les les".
+  //     Must be LOWER than 150.
+  // 140: too many missed repated home rome keys. "less" becomes "les" when typing fast.
+  // 130: appears to work about as well as 120 for not missing repeated home row keys.
+  //      and at least as good as 120 for hold and repeat. difficult but doable with practice.
+
+  //Qukeys.setMaxIntervalForTapRepeat(120);  // default 200
+
+  Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
 }
 
 void loop() {
