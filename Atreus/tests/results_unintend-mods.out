@@ -1,0 +1,159 @@
+Verifying that quickly tapped home row modifier keys
+and quickly tapped repeated home row modifier keys do
+not activate unintended modifiers.
+
+
+add less add less add less add less less less less again
+
+
+========= Qukeys.setOverlapThreshold(95)
+
+add ´ss
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add ´ss
+
+
+========= Qukeys.setOverlapThreshold(98)
+
+add less add less add less add less less less less again
+add less add less add less add less ´ss 
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add ´ss
+add less add ´ss add 
+add ´s
+add less add less add less a
+add less add less add less add less add less add less
+add less add less add less add less less less less again
+add ´ss
+add ´ss add le
+add ´ss 
+
+
+========= Qukeys.setOverlapThreshold(100)
+
+add less add less add less add less less less less again
+
+add less add less add less add ´ss a
+add less add less add less add less less less les again
+add less add ´ss
+add less add ´ss add ´ssa
+add ´ss 
+add less add less add less add less less less les again
+add ´ss
+add ´ss
+
+>>>> Even at 100, I'm still activating the modifier unintentially.
+     Next, try increasing the value of setMinimumHoldTime from 120.
+
+
+==================================
+  Qukeys.setOverlapThreshold(100);
+  Qukeys.setMinimumHoldTime(130);
+
+add less add less add less add less less less less again
+
+add less add ´ss
+add less add less add less add less add less less less again
+add ´ss 
+add ´ss
+add ´ss
+add les
+add ´ss
+add ´s
+add less add less add less add less add less add less
+add less add less add less add less add less add less
+add less add less add less add less less add less less less again
+add less add less add less add less add less less less less again
+add less add less add less add less add less less less les again 
+add less add less add less add less add ´ss
+add less add less add less add less add less add less less less again
+add less add less add less ad less add les
+add le 
+add less add less add less add less add less add less less less again
+
+
+==================================
+  Qukeys.setOverlapThreshold(100);
+  Qukeys.setMinimumHoldTime(150);
+
+
+add less add less add less add less less less less again
+
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+
+add less add less add less add less less lesss less again
+add less add less add less add less less less less again
+add less add less add less ad less  less less less again
+
+add less add less add less add less less less les again 
+add less add less add less add less less less less again
+add less add less add less add less lesss less less again
+
+add less add less add less add less less less less again
+add less add less add less add less add less less less less again
+
+No unintended modifiers actived with:
+  Qukeys.setOverlapThreshold(100);
+  Qukeys.setMinimumHoldTime(150);
+
+Will try going back from 150 to 130 as a controlled example.
+
+
+==================================
+  Qukeys.setOverlapThreshold(100);
+  Qukeys.setMinimumHoldTime(130);
+
+add less add less add less add less less less less again
+
+add less add less add less add les less less less again
+add less add less add less add ´ss 
+add less add less add less add less less les less again
+add less add less add less add less less less less less again
+
+add less add less add less add less less less less less again
+add less add less add less add less less less less les again
+add less add less add less add less lesss les less less again
+add less add les add less add less add less add less less less again
+add less add ´ss
+add ´ss
+add ´ss
+add less add ´sss
+add less add ´ss
+add ´ss 
+add less add less add less add less ad
+add ´ss 
+
+At 130, I'm unintentially activating modifers again. Going back to 150.
+
+
+==================================
+  Qukeys.setOverlapThreshold(100);
+  Qukeys.setMinimumHoldTime(150);
+
+add less add less add less add less less less less again
+
+add less add less add ´ss
+
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+
+add less add les add less add les less less less again
+add less add less add less add less add less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+
+add less add less add less add less les less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+
+
+
