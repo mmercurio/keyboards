@@ -229,8 +229,15 @@ void setup() {
   //
   // Preventing unintended modifier activation when using Qukeys
   // plugin with home row mods:
-  Qukeys.setOverlapThreshold(90);       // default 80
-  Qukeys.setMinimumHoldTime(100);       // default 50
+  Qukeys.setOverlapThreshold(100);      // default 80
+  // ^^^ not sure we need to go as high as 100.
+  //     previous value may have been fine.
+
+  Qukeys.setMinimumHoldTime(120);       // default 50
+  // ^^^ higher value here seems to help with unintended
+  //     modifier when rolling from home row key to non home row key
+  //     such as when typing 'less' and not getting unintended Opt-modifer
+  //     instead of 'l'.
   Qukeys.setMinimumPriorInterval(80);   // default 75
 
 
@@ -258,7 +265,15 @@ void setup() {
   // 130: appears to work about as well as 120 for not missing repeated home row keys.
   //      and at least as good as 120 for hold and repeat. difficult but doable with practice.
 
-  Qukeys.setMaxIntervalForTapRepeat(50);  // default 200
+
+  // 130 still works with above settings to minimize unintended mods.
+  // Now, let's experiment with some higher values to see if we can
+  // make hold and repeat easier.
+  //
+  // 150: NOPE!
+  // 130: hmm... seem to be having issues with unintended modifers at 130 now.
+  // 140?
+  Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
 }
 
 void loop() {
