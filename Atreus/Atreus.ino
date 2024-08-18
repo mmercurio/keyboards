@@ -223,9 +223,22 @@ void setup() {
   // *** 160 kind of woorks. press and hold to repeat requires very rapid key presses to get hold and repeat working
 
   //Qukeys.setHoldTimeout(1000);    // default 250
-  Qukeys.setOverlapThreshold(85);   // default 80
-  //Qukeys.setMinimumHoldTime(100);   // default 50
-  Qukeys.setMinimumPriorInterval(80); // default 75
+
+
+  /////////////////////////////////////////////////////////////////
+  //
+  // Preventing unintended modifier activation when using Qukeys
+  // plugin with home row mods:
+  Qukeys.setOverlapThreshold(90);       // default 80
+  Qukeys.setMinimumHoldTime(100);       // default 50
+  Qukeys.setMinimumPriorInterval(80);   // default 75
+
+
+  //// idea: may want to experiment with LOWER values
+  // YES!
+  // Setting this to 80 with above settings abosutely
+  // helps with minimizing unintended modifiers!!!
+  //Qukeys.setMinimumPriorInterval(80); // default 75
 
   // current default: 160
   //Qukeys.setMaxIntervalForTapRepeat(160);  // default 200
@@ -245,9 +258,7 @@ void setup() {
   // 130: appears to work about as well as 120 for not missing repeated home row keys.
   //      and at least as good as 120 for hold and repeat. difficult but doable with practice.
 
-  //Qukeys.setMaxIntervalForTapRepeat(120);  // default 200
-
-  Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
+  Qukeys.setMaxIntervalForTapRepeat(50);  // default 200
 }
 
 void loop() {
