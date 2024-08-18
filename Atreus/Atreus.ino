@@ -233,7 +233,7 @@ void setup() {
   // ^^^ not sure we need to go as high as 100.
   //     previous value may have been fine.
 
-  Qukeys.setMinimumHoldTime(120);       // default 50
+  Qukeys.setMinimumHoldTime(150);       // default 50
   // ^^^ higher value here seems to help with unintended
   //     modifier when rolling from home row key to non home row key
   //     such as when typing 'less' and not getting unintended Opt-modifer
@@ -272,7 +272,7 @@ void setup() {
   //
   // 150: NOPE!
   // 130: hmm... seem to be having issues with unintended modifers at 130 now.
-  // 140?
+  // 140: no. just keep it at 130
   Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
 }
 
