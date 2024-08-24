@@ -1,0 +1,8 @@
+This test verifies no unintended modifers are activated
+when using home row mods on the QWERTY layout.
+
+Type the following as quickly as possible and repeat each
+line 3-5 times. Expect no unintended modifiers.
+
+add less add less add less less less again
+add less add less add less less less again

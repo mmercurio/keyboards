@@ -208,6 +208,13 @@ void setup() {
   // can be permanently enabled via Chrysalis, so we should only disable it if
   // no configuration exists.
   SpaceCadetConfig.disableSpaceCadetIfUnconfigured();
+
+  // Tweak Qukeys to prevent unintended modifiers with home row mods:
+  // https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html
+  Qukeys.setOverlapThreshold(100);         // default 80
+  Qukeys.setMinimumHoldTime(150);          // default 50
+  Qukeys.setMinimumPriorInterval(80);      // default 75
+  Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
 }
 
 void loop() {
