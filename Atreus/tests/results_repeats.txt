@@ -1,0 +1,118 @@
+Verifying quickly tapped repeated home row mod keys do
+not activate unintended modifiers, and also ensure all
+repeated tapped keys register with their tapped (primary)
+key.
+
+=============== setMaxIntervalForTapRepeat 130
+
+add less add less add less less less less again
+add less add less add less less less less again
+add add add add add less less less less less again
+add add add add add less less less less less again
+add add add add add less less les le
+add add add add add les les 
+less less less less less les 
+
+less less less less less less less less less less
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less les less again 
+add ´ss ad
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+add less add less add less add less less less less again
+
+=============== setMaxIntervalForTapRepeat 140
+
+add less add less add less
+add less add less add less less less less less again
+add les and 
+add less add less les 
+add less add less less less less 
+
+add less add less less less less les 
+add les 
+add less add les lss
+
+
+=============== setMaxIntervalForTapRepeat 130
+
+add less add ´ss add less
+add less add less add less less less less add less again
+add less add less add less les 
+add less add less add less less less les 
+add less add less add less less less less add less
+add less add less add less less less less less less
+
+
+=============== setMaxIntervalForTapRepeat 140
+
+add less add less add ´ss
+add ´ss
+add ´ss
+add les
+add les
+add less add les
+add less add ´ss
+add les
+add les
+add less add less add less add less again
+add less add less add les
+add less ad less add less ad les
+add les add
+add less ad les
+
+
+=============== setMaxIntervalForTapRepeat 130
+
+add ´ss
+add less add less add les add
+add ´ss
+add less add less add less add less
+add less add less add less less les 
+add less less les
+add less less less add les less
+add less les les
+add les
+add less add less add less add less add less add less
+add less add less add less add less add less add less
+add less add less add add add add add less less less less less
+add les 
+add less add less add lesss add less add less add les
+add elss add less add less add le
+add less add less add less add less add lesss
+
+add less add less add less less less add less less less 
+add ´ss 
+add less add less add less less less add les le
+add less add less add less less less add less less less
+add less add less add less add less
+add ´ss 
+add less add less add less add less add less add less add less
+add less add less add less add less add less add less add less
+
+
+============ Qukeys.setMaxIntervalForTapRepeat(150); 
+
+add less add less add less add less less less less again
+add ´ss 
+add less add ´s 
+add less add ´s
+add les add 
+add les add less add les 
+add less add les ad
+add ´ss 
+add less add les 
+add less add less add less add less ad
+add less add less add less add less add less add less add less
+add less add less add les add less 
+add less add less add les 
+add less add les
+add les
+add less add less add les
+add les
+add less add les
+add less add less add less add less add less add les
+add less add less add les
+add less add less add less add les 
+
