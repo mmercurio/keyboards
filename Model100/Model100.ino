@@ -743,6 +743,14 @@ void setup() {
   // firmware starts with LED effects off. This avoids over-taxing devices that
   // don't have a lot of power to share with USB devices
   DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDOff);
+
+  // Tweak Qukeys to prevent unintended modifiers with home row mods:
+  // https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html
+  Qukeys.setOverlapThreshold(100);         // default 80
+  Qukeys.setMinimumHoldTime(150);          // default 50
+  Qukeys.setMinimumPriorInterval(80);      // default 75
+  Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
+
 }
 
 /** loop is the second of the standard Arduino sketch functions.
