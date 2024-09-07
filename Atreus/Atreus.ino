@@ -212,8 +212,8 @@ void setup() {
   // Tweak Qukeys to prevent unintended modifiers with home row mods:
   // https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html
   Qukeys.setOverlapThreshold(100);         // default 80
-  Qukeys.setMinimumHoldTime(150);          // default 50
-  Qukeys.setMinimumPriorInterval(80);      // default 75
+  Qukeys.setMinimumHoldTime(500);          // default 50
+  Qukeys.setMinimumPriorInterval(350);      // default 75
   Qukeys.setMaxIntervalForTapRepeat(130);  // default 200
 }
 

@@ -1,8 +1,21 @@
 This test verifies no unintended modifers are activated
 when using home row mods on the QWERTY layout.
 
+Examples of unintended modifers while typing quickly with
+home row mods in QWERTY layout:
+
+1. typing `less` and activating modifier [Opt] instead of
+   `l`, resulting in Opt+L instead of `le`.
+
+2. typing `could` and activating modifier [Opt] instead of
+   `l`, resulting in Opt+D instead of `ld`.
+
+3. typing `add ` and activating modifier [Cmd] instead of
+   `d`, resulting in Cmd+space instead of `d `.
+
 Type the following as quickly as possible and repeat each
 line 3-5 times. Expect no unintended modifiers.
 
+could could could  add less add less again
 add less add less add less less less again
-add less add less add less less less again
+could could could could again
