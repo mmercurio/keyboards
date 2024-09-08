@@ -40,8 +40,13 @@
 
 enum {
   MACRO_QWERTY,
-  MACRO_VERSION_INFO
+  MACRO_VERSION_INFO,
+  MACRO_TOGGLE_QUKEYS_REPEAT_DELAY
 };
+
+#define QUKEY_TAP_REPEAT_DELAY 160
+
+bool Quekey_Repeat_Delay_Enabled = true;
 
 #define Key_Exclamation LSHIFT(Key_1)
 #define Key_At          LSHIFT(Key_2)
@@ -187,6 +192,16 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
       Macros.type(PSTR("Keyboardio Atreus - Kaleidoscope "));
       Macros.type(PSTR(BUILD_INFORMATION));
       break;
+    case MACRO_TOGGLE_QUKEYS_REPEAT_DELAY:
+      if (Quekey_Repeat_Delay_Enabled) {
+        Quekey_Repeat_Delay_Enabled = false;
+        Qukeys.setMaxIntervalForTapRepeat(0);
+      }
+      else {
+        Quekey_Repeat_Delay_Enabled = true;
+        Qukeys.setMaxIntervalForTapRepeat(QUKEY_TAP_REPEAT_DELAY);
+      }
+      break;
     default:
       break;
     }
@@ -214,7 +229,7 @@ void setup() {
   Qukeys.setOverlapThreshold(100);         // default 80
   Qukeys.setMinimumHoldTime(500);          // default 50
   Qukeys.setMinimumPriorInterval(350);      // default 75
-  Qukeys.setMaxIntervalForTapRepeat(150);  // default 200
+  Qukeys.setMaxIntervalForTapRepeat(QUKEY_TAP_REPEAT_DELAY);  // default 200
 }
 
 void loop() {
