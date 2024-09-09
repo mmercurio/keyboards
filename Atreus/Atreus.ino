@@ -41,12 +41,20 @@
 enum {
   MACRO_QWERTY,
   MACRO_VERSION_INFO,
-  MACRO_TOGGLE_QUKEYS_REPEAT_DELAY
+  MACRO_QUKEYS_REPEAT_DELAY_INFO,   // 2
+  MACRO_QUKEYS_REPEAT_DELAY_DEC,    // 3
+  MACRO_QUKEYS_REPEAT_DELAY_INC,    // 4
+  MACRO_QUKEYS_REPEAT_DELAY_TOGGLE  // 5
 };
 
-#define QUKEY_TAP_REPEAT_DELAY 160
+#define QUKEYS_TAP_REPEAT_DELAY_DEFAULT 140
+#define QUKEYS_TAP_REPEAT_DELAY_DEFAULT_STR "140"
+#define QUKEYS_TAP_REPEAT_DELAY_MIN     100
+#define QUKEYS_TAP_REPEAT_DELAY_MAX     220
+#define QUKEYS_TAP_REPEAT_DELAY_DELTA   10
 
-bool Quekey_Repeat_Delay_Enabled = true;
+bool Qukeys_Repeat_Delay_Enabled = true;
+uint8_t Qukeys_Repeat_Delay = QUKEYS_TAP_REPEAT_DELAY_DEFAULT;
 
 #define Key_Exclamation LSHIFT(Key_1)
 #define Key_At          LSHIFT(Key_2)
@@ -189,17 +197,49 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
       Layer.move(QWERTY);
       break;
     case MACRO_VERSION_INFO:
-      Macros.type(PSTR("Keyboardio Atreus - Kaleidoscope "));
+      Macros.type(("Keyboardio Atreus - Kaleidoscope "));
       Macros.type(PSTR(BUILD_INFORMATION));
       break;
-    case MACRO_TOGGLE_QUKEYS_REPEAT_DELAY:
-      if (Quekey_Repeat_Delay_Enabled) {
-        Quekey_Repeat_Delay_Enabled = false;
+    case MACRO_QUKEYS_REPEAT_DELAY_INFO:
+      Macros.type(PSTR("Keyboardio Atreus Qukeys tap repeat: "));
+      if (Qukeys_Repeat_Delay_Enabled) {
+        if (Qukeys_Repeat_Delay >= QUKEYS_TAP_REPEAT_DELAY_MAX) {
+          Macros.type(PSTR("MAX"));
+        }
+        else if (Qukeys_Repeat_Delay <= QUKEYS_TAP_REPEAT_DELAY_MIN) {
+          Macros.type(PSTR("MIN"));
+        }
+        else if (Qukeys_Repeat_Delay < QUKEYS_TAP_REPEAT_DELAY_DEFAULT) {
+          Macros.type(PSTR("< DEFAULT, > MIN"));
+        }
+        else if (Qukeys_Repeat_Delay > QUKEYS_TAP_REPEAT_DELAY_DEFAULT) {
+          Macros.type(PSTR("> DEFAULT, < MAX"));
+        }
+        else {
+          Macros.type(PSTR("DEFAULT="QUKEYS_TAP_REPEAT_DELAY_DEFAULT_STR));
+        }
+      }
+      else {
+        Macros.type(PSTR("DISABLED."));
+      }
+      break;
+    case MACRO_QUKEYS_REPEAT_DELAY_INC:
+      Qukeys_Repeat_Delay = min(Qukeys_Repeat_Delay + QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MAX);
+      Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
+      break;
+    case MACRO_QUKEYS_REPEAT_DELAY_DEC:
+      Qukeys_Repeat_Delay = max(Qukeys_Repeat_Delay - QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MIN);
+      Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
+      break;
+    case MACRO_QUKEYS_REPEAT_DELAY_TOGGLE:
+      if (Qukeys_Repeat_Delay_Enabled) {
+        Qukeys_Repeat_Delay_Enabled = false;
         Qukeys.setMaxIntervalForTapRepeat(0);
       }
       else {
-        Quekey_Repeat_Delay_Enabled = true;
-        Qukeys.setMaxIntervalForTapRepeat(QUKEY_TAP_REPEAT_DELAY);
+        Qukeys_Repeat_Delay_Enabled = true;
+        Qukeys_Repeat_Delay = QUKEYS_TAP_REPEAT_DELAY_DEFAULT;
+        Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
       }
       break;
     default:
@@ -229,7 +269,7 @@ void setup() {
   Qukeys.setOverlapThreshold(100);         // default 80
   Qukeys.setMinimumHoldTime(500);          // default 50
   Qukeys.setMinimumPriorInterval(350);      // default 75
-  Qukeys.setMaxIntervalForTapRepeat(QUKEY_TAP_REPEAT_DELAY);  // default 200
+  Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_DELAY_DEFAULT);  // default 200
 }
 
 void loop() {
