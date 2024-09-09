@@ -19,7 +19,7 @@ Until I learned about and started using [home row mods](https://precondition.git
 
 My only problem was that when typing quickly (and sometimes not so quickly) with the default Kaleidoscope firmware, I would frequently accidentally trigger unintentional modifier actions and run into other problems such as repeated home row keys not getting registered. This is what led me to customize and compile my own firmware.
 
-### Qukey Settings
+### My Qukeys Settings
 
 Home row mods and secondary actions in general, such as secondary actions on the thumb cluster keys, are controlled in Kaleidoscope using the [Qukeys](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html) plugin.
 
@@ -32,7 +32,14 @@ In order to reduce unintentionally activating modifiers and secondary actions wh
 
 ### Dynamic Adjustments
 
-I reduced [`.setMaxIntervalForTapRepeat(timeout)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setmaxintervalfortaprepeat-timeout) to significantly lower values (e.g, 140 ms and below) than the default of 200 ms, in order to mitigate an issue where repeatedly quickly tapped home row keys would not register (e.g., typing "less" would only register one "s"). But this led to another problem: I could not tap and hold a key to have it repeat ([Tap-Repeat Behavior](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#tap-repeat-behaviour)). For most keys, this was not a problem for for many keys such as vi-style navigation arrows, backspace, space, etc., this was more of a nuisance.
+I reduced [`.setMaxIntervalForTapRepeat(timeout)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setmaxintervalfortaprepeat-timeout) to significantly lower values (e.g, 140 ms and below) than the default of 200 ms, in order to mitigate an issue where repeatedly quickly tapped home row keys would not register (e.g., typing "less" would only register one "s"). But this led to another problem: I could not tap and hold a key to have it repeat ([Tap-Repeat Behavior](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#tap-repeat-behaviour)). For most keys this is not a problem, but for keys such as vi-style navigation arrows, backspace, space, etc., this was much more of a nuisance.
 
-To mitigate that, I created the ability to dynamically modify some Qukey settings using configured Macros on the `Fun` layer.
+To mitigate issues with the Qukeys Tap-Repeat behavior, I created the ability to dynamically modify some Qukey settings using configured Macros which I map to keys on the Function layer. The Macros are:
 
+* `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO`: type out info on current settings for debugging.
+* `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC`: decrease the tap-repeat timeout.
+* `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC`: increase the tap-repeat timeout.
+* `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF`: toggle the tap-repeat timeout between current value and 0 to temporarily disable it.
+* `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX`: toggle the tap-repeat timeout between current value and its max, to temporarily allow easier repeating of held keys.
+
+In general, I prefer values of 130-140 ms for the tap-repeat timeout interval. But when I want to occasionally take advantage of the tap-repeat behavior, I'm now able to quickly temporarily modify the settings. 

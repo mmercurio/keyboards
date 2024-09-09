@@ -41,19 +41,41 @@
 enum {
   MACRO_QWERTY,
   MACRO_VERSION_INFO,
-  MACRO_QUKEYS_REPEAT_DELAY_INFO,   // 2
-  MACRO_QUKEYS_REPEAT_DELAY_DEC,    // 3
-  MACRO_QUKEYS_REPEAT_DELAY_INC,    // 4
-  MACRO_QUKEYS_REPEAT_DELAY_TOGGLE  // 5
+
+  // These are special Qukeys macros to dynamically control Qukeys tap-repeat behavior
+  // by modifying Qukeys.setMaxIntervalForTapRepeat(timeout) value.
+  // The numeric references are for easily configuring the Macros from Chrysalis editor.
+
+  // Type out current settings for debugging
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO,   // 2
+
+  // Decrease the tap-repeat timeout
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC,    // 3
+
+  // Increase the tap-repeat timeout
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC,    // 4
+
+  // Toggle the tap-repeat timeout off, temporarily setting it to 0 and then back to previous value
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF,  // 5
+
+  // Toggle the tap-repeat timeout to max temporarily. Next activation will return to previous value.
+  MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX  // 6
 };
 
-#define QUKEYS_TAP_REPEAT_DELAY_DEFAULT 140
-#define QUKEYS_TAP_REPEAT_DELAY_MIN     100
-#define QUKEYS_TAP_REPEAT_DELAY_MAX     220
-#define QUKEYS_TAP_REPEAT_DELAY_DELTA   10
+#define QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT 140
+#define QUKEYS_TAP_REPEAT_TIMEOUT_MIN     100
+#define QUKEYS_TAP_REPEAT_TIMEOUT_MAX     220
+#define QUKEYS_TAP_REPEAT_TIMEOUT_DELTA   10
 
-bool Qukeys_Repeat_Delay_Enabled = true;
-uint8_t Qukeys_Repeat_Delay = QUKEYS_TAP_REPEAT_DELAY_DEFAULT;
+// Qukeys Tap-Repeat State
+typedef enum {
+  QTR_STATE_ENABLED,
+  QTR_STATE_OFF,
+  QTR_STATE_MAX
+} QtrState_t;
+
+QtrState_t QukeysTapRepeatState = QTR_STATE_ENABLED;
+uint8_t QukeysTapRepeatTimeout = QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT;
 
 #define Key_Exclamation LSHIFT(Key_1)
 #define Key_At          LSHIFT(Key_2)
@@ -210,21 +232,68 @@ void typeValue(uint8_t value) {
   }
 }
 
-void typeQukeysTapRepeatDelay() {
-  // Using Macros type the value for Qukeys tap repeat delay
-  Macros.type(PSTR("Keyboardio Atreus Qukeys tap repeat: "));
-  typeValue(Qukeys_Repeat_Delay);
-  if (! Qukeys_Repeat_Delay_Enabled) {
-    Macros.type(PSTR(" DISABLED (0)"));
+void typeQukeysTapRepeatTimeout() {
+  // Using Macros type the value for Qukeys tap-repeat timeout
+  Macros.type(PSTR("Keyboardio Atreus Qukeys tap-repeat: "));
+  typeValue(QukeysTapRepeatTimeout);
+  if (QukeysTapRepeatState == QTR_STATE_OFF) {
+    Macros.type(PSTR(" TOGGLED OFF"));
   }
-  else if (Qukeys_Repeat_Delay >= QUKEYS_TAP_REPEAT_DELAY_MAX) {
+  else if (QukeysTapRepeatState == QTR_STATE_MAX) {
+    Macros.type(PSTR(" TOGGLED MAX"));
+  }
+  else if (QukeysTapRepeatTimeout >= QUKEYS_TAP_REPEAT_TIMEOUT_MAX) {
     Macros.type(PSTR(" MAX"));
   }
-  else if (Qukeys_Repeat_Delay <= QUKEYS_TAP_REPEAT_DELAY_MIN) {
+  else if (QukeysTapRepeatTimeout <= QUKEYS_TAP_REPEAT_TIMEOUT_MIN) {
     Macros.type(PSTR(" MIN"));
   }
-  else if (Qukeys_Repeat_Delay == QUKEYS_TAP_REPEAT_DELAY_DEFAULT)  {
+  else if (QukeysTapRepeatTimeout == QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT)  {
     Macros.type(PSTR(" DEFAULT"));
+  }
+}
+
+void increaseQukeysTapRepeatTimeout() {
+  // increase the tap-repeat timeout value and switch state to enabled if in another state
+  QukeysTapRepeatTimeout =
+    min(QukeysTapRepeatTimeout + QUKEYS_TAP_REPEAT_TIMEOUT_DELTA, QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+  Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+  QukeysTapRepeatState = QTR_STATE_ENABLED;
+}
+
+void decreaseQukeysTapRepeatTimeout() {
+  // decrease the tap-repeat timeout value and switch state to enabled if in another state
+  QukeysTapRepeatTimeout =
+    max(QukeysTapRepeatTimeout - QUKEYS_TAP_REPEAT_TIMEOUT_DELTA, QUKEYS_TAP_REPEAT_TIMEOUT_MIN);
+  Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+  QukeysTapRepeatState = QTR_STATE_ENABLED;
+}
+
+void toggleOffQukeysTapRepeatTimeout() {
+  // toggle tap-repeat between off/previous value
+  // if toggled off, toggle back to enabled.
+  // if enabled or if toggled to max, toggle to off.
+  if (QukeysTapRepeatState == QTR_STATE_OFF) {
+    Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+    QukeysTapRepeatState = QTR_STATE_ENABLED;
+  }
+  else {
+    Qukeys.setMaxIntervalForTapRepeat(0);
+    QukeysTapRepeatState = QTR_STATE_OFF;
+  }
+}
+
+void toggleMaxQukeysTapRepeatTimeout() {
+  // toggle tap-repeat between max/previous value
+  // if toggled to max, toggle back to enabled
+  // if enabled or togged to off, toggle to max
+  if (QukeysTapRepeatState == QTR_STATE_MAX) {
+    Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+    QukeysTapRepeatState = QTR_STATE_ENABLED;
+  }
+  else {
+    Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+    QukeysTapRepeatState = QTR_STATE_MAX;
   }
 }
 
@@ -242,30 +311,20 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
       Macros.type(("Keyboardio Atreus - Kaleidoscope "));
       Macros.type(PSTR(BUILD_INFORMATION));
       break;
-    case MACRO_QUKEYS_REPEAT_DELAY_INFO:
-      typeQukeysTapRepeatDelay();
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO:
+      typeQukeysTapRepeatTimeout();
       break;
-    case MACRO_QUKEYS_REPEAT_DELAY_INC:
-      Qukeys_Repeat_Delay = min(Qukeys_Repeat_Delay + QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MAX);
-      Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
-      Qukeys_Repeat_Delay_Enabled = true;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC:
+      increaseQukeysTapRepeatTimeout();
       break;
-    case MACRO_QUKEYS_REPEAT_DELAY_DEC:
-      Qukeys_Repeat_Delay = max(Qukeys_Repeat_Delay - QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MIN);
-      Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
-      Qukeys_Repeat_Delay_Enabled = true;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC:
+      decreaseQukeysTapRepeatTimeout();
       break;
-    case MACRO_QUKEYS_REPEAT_DELAY_TOGGLE:
-      if (Qukeys_Repeat_Delay_Enabled) {
-        Qukeys_Repeat_Delay_Enabled = false;
-        Qukeys.setMaxIntervalForTapRepeat(0);
-      }
-      else {
-        Qukeys_Repeat_Delay_Enabled = true;
-        Qukeys_Repeat_Delay = QUKEYS_TAP_REPEAT_DELAY_DEFAULT;
-        Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
-      }
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF:
+      toggleOffQukeysTapRepeatTimeout();
       break;
+    case MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX:
+      toggleMaxQukeysTapRepeatTimeout();
     default:
       break;
     }
@@ -293,7 +352,7 @@ void setup() {
   Qukeys.setOverlapThreshold(100);         // default 80
   Qukeys.setMinimumHoldTime(500);          // default 50
   Qukeys.setMinimumPriorInterval(350);      // default 75
-  Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_DELAY_DEFAULT);  // default 200
+  Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT);  // default 200
 }
 
 void loop() {
