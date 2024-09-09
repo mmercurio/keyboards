@@ -48,13 +48,9 @@ enum {
 };
 
 #define QUKEYS_TAP_REPEAT_DELAY_DEFAULT 140
-#define QUKEYS_TAP_REPEAT_DELAY_DEFAULT_STR "140"
 #define QUKEYS_TAP_REPEAT_DELAY_MIN     100
-#define QUKEYS_TAP_REPEAT_DELAY_MIN_STR "100"
 #define QUKEYS_TAP_REPEAT_DELAY_MAX     220
-#define QUKEYS_TAP_REPEAT_DELAY_MAX_STR "220"
 #define QUKEYS_TAP_REPEAT_DELAY_DELTA   10
-#define QUKEYS_TAP_REPEAT_DELAY_DELTA_STR "10"
 
 bool Qukeys_Repeat_Delay_Enabled = true;
 uint8_t Qukeys_Repeat_Delay = QUKEYS_TAP_REPEAT_DELAY_DEFAULT;
@@ -189,36 +185,46 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // GeminiPR,
 );
 
-void tapRepeatDelayIndicatorTicks() {
-  const char* low = PSTR("-");
-  const char* high = PSTR("+");
-  Macros.type(PSTR(" tick="QUKEYS_TAP_REPEAT_DELAY_DELTA_STR": "));
-  int ticks = abs(Qukeys_Repeat_Delay - QUKEYS_TAP_REPEAT_DELAY_DEFAULT) / QUKEYS_TAP_REPEAT_DELAY_DELTA;
-  const char* direction = Qukeys_Repeat_Delay < QUKEYS_TAP_REPEAT_DELAY_DEFAULT ? low : high;
-  for (int i = 0; i < ticks; i++) {
-    Macros.type(direction);
+void typeDigit(uint8_t digit) {
+  // Using Macros type the single digit 0-9
+  if (digit > 9) {
+    Macros.type(PSTR("???"));
+    return;
+  }
+  const char* digits[] = {
+    PSTR("0"), PSTR("1"), PSTR("2"), PSTR("3"), PSTR("4"), PSTR("5"), PSTR("6"), PSTR("7"), PSTR("8"), PSTR("9")
+  };
+  Macros.type(digits[digit]);
+}
+
+void typeValue(uint8_t value) {
+  // Using Macros type each digit of the value given an unsigned 8-bit value.
+  // pretty pathetic but for small numbers it's okay.
+  if (value >= 10) {
+    uint8_t digit = value % 10;
+    value = value / 10;
+    typeValue(value); // will never recurse more than 3 times.
+    typeDigit(digit);
+  } else {
+    typeDigit(value);
   }
 }
 
-void tapRepeatDelayIndicator() {
-  // Using Macros, type out an indicator for the current value of
-  // Qukeys_Repeat_Delay (i.e., Qukeys.setMaxIntervalForTapRepeat)
+void typeQukeysTapRepeatDelay() {
+  // Using Macros type the value for Qukeys tap repeat delay
+  Macros.type(PSTR("Keyboardio Atreus Qukeys tap repeat: "));
+  typeValue(Qukeys_Repeat_Delay);
   if (! Qukeys_Repeat_Delay_Enabled) {
-    Macros.type(PSTR("DISABLED."));
-    return;
+    Macros.type(PSTR(" DISABLED (0)"));
   }
-
-  if (Qukeys_Repeat_Delay >= QUKEYS_TAP_REPEAT_DELAY_MAX) {
-    Macros.type(PSTR("MAX="QUKEYS_TAP_REPEAT_DELAY_MAX_STR));
+  else if (Qukeys_Repeat_Delay >= QUKEYS_TAP_REPEAT_DELAY_MAX) {
+    Macros.type(PSTR(" MAX"));
   }
   else if (Qukeys_Repeat_Delay <= QUKEYS_TAP_REPEAT_DELAY_MIN) {
-    Macros.type(PSTR("MIN="QUKEYS_TAP_REPEAT_DELAY_MIN_STR));
+    Macros.type(PSTR(" MIN"));
   }
-  else {
-    Macros.type(PSTR("DEFAULT="QUKEYS_TAP_REPEAT_DELAY_DEFAULT_STR));
-    if (Qukeys_Repeat_Delay != QUKEYS_TAP_REPEAT_DELAY_DEFAULT) {
-      tapRepeatDelayIndicatorTicks();
-    }
+  else if (Qukeys_Repeat_Delay == QUKEYS_TAP_REPEAT_DELAY_DEFAULT)  {
+    Macros.type(PSTR(" DEFAULT"));
   }
 }
 
@@ -237,16 +243,17 @@ const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
       Macros.type(PSTR(BUILD_INFORMATION));
       break;
     case MACRO_QUKEYS_REPEAT_DELAY_INFO:
-      Macros.type(PSTR("Keyboardio Atreus Qukeys tap repeat: "));
-      tapRepeatDelayIndicator();
+      typeQukeysTapRepeatDelay();
       break;
     case MACRO_QUKEYS_REPEAT_DELAY_INC:
       Qukeys_Repeat_Delay = min(Qukeys_Repeat_Delay + QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MAX);
       Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
+      Qukeys_Repeat_Delay_Enabled = true;
       break;
     case MACRO_QUKEYS_REPEAT_DELAY_DEC:
       Qukeys_Repeat_Delay = max(Qukeys_Repeat_Delay - QUKEYS_TAP_REPEAT_DELAY_DELTA, QUKEYS_TAP_REPEAT_DELAY_MIN);
       Qukeys.setMaxIntervalForTapRepeat(Qukeys_Repeat_Delay);
+      Qukeys_Repeat_Delay_Enabled = true;
       break;
     case MACRO_QUKEYS_REPEAT_DELAY_TOGGLE:
       if (Qukeys_Repeat_Delay_Enabled) {
