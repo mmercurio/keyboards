@@ -237,20 +237,19 @@ void typeQukeysTapRepeatTimeout() {
   Macros.type(PSTR("Keyboardio Atreus Qukeys tap-repeat: "));
   typeValue(QukeysTapRepeatTimeout);
   if (QukeysTapRepeatState == QTR_STATE_OFF) {
-    Macros.type(PSTR(" TOGGLED OFF"));
+    Macros.type(PSTR(" [TOGGLED OFF]"));
   }
   else if (QukeysTapRepeatState == QTR_STATE_MAX) {
-    Macros.type(PSTR(" TOGGLED MAX"));
+    Macros.type(PSTR(" [TOGGLED MAX]"));
   }
-  else if (QukeysTapRepeatTimeout >= QUKEYS_TAP_REPEAT_TIMEOUT_MAX) {
-    Macros.type(PSTR(" MAX"));
-  }
-  else if (QukeysTapRepeatTimeout <= QUKEYS_TAP_REPEAT_TIMEOUT_MIN) {
-    Macros.type(PSTR(" MIN"));
-  }
-  else if (QukeysTapRepeatTimeout == QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT)  {
-    Macros.type(PSTR(" DEFAULT"));
-  }
+  Macros.type(PSTR(" MIN="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_MIN);
+  Macros.type(PSTR(" MAX="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+  Macros.type(PSTR(" DEFAULT="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT);
+  Macros.type(PSTR(" DELTA="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_DELTA);
 }
 
 void increaseQukeysTapRepeatTimeout() {
