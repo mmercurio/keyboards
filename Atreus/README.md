@@ -42,4 +42,18 @@ To mitigate issues with the Qukeys Tap-Repeat behavior, I created the ability to
 * `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF`: toggle the tap-repeat timeout between current value and 0 to temporarily disable it.
 * `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX`: toggle the tap-repeat timeout between current value and its max, to temporarily allow easier repeating of held keys.
 
-In general, I prefer values of 130-140 ms for the tap-repeat timeout interval. But when I want to occasionally take advantage of the tap-repeat behavior, I'm now able to quickly temporarily modify the settings. 
+In general, I prefer values of 130-140 ms for the tap-repeat timeout interval. But when I want to occasionally take advantage of the tap-repeat behavior, I'm now able to quickly temporarily modify the settings.
+
+## Layout Experiments
+
+### Alternative 01
+
+Experimental alternative layout to solve these specific issues with my original layout:
+
+1. Using home row mods for `shift` is often challenging when typing uppercase or mixed case letters that alternate between hands, such as "MACRO". It would be nice to have access to `shift` on the thumb keys that do not conflict with other letters.
+1. Copying and pasting is not easy when the right hand is on the mouse. On a normal QWERTY keyboard this is trivial with the left hand. However, with the original layout above it requires the left hand crossing to the right half of the split keyboard or a difficult contortion or chording two keys with the left hand.
+
+Ideas:
+
+* add `shift` as secondary modifier on outter thumb keys, repositioning layer shift keys for `fun` and `media` layers.
+* mirror paste, copy, cut keys from right hand to left hands on the `mouse` layer so these keys can easily be used with either hand when the right hand is on the mouse.
