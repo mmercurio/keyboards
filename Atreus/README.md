@@ -56,4 +56,4 @@ Experimental alternative layout to solve these specific issues with my original 
 Ideas:
 
 * add `shift` as secondary modifier on outter thumb keys, repositioning layer shift keys for `fun` and `media` layers.
-* repeat paste, copy, cut keys from right hand to left hands on the `mouse` layer so these keys can easily be used with either hand when the right hand is on the mouse.
+* mirror paste, copy, cut keys from right hand to left hands on the `mouse` layer so these keys can easily be used with either hand when the right hand is on the mouse.
