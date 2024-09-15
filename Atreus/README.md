@@ -6,16 +6,17 @@ My Atreus layout is inspired by [Miryoku](https://github.com/manna-harbour/miryo
 
 * QWERTY layout for base layer
 * vi-style navigation vs Miryoku arrows on home keys
-* Additional macOS shortcuts on Nav and Mouse layers
+* Additional macOS shortcuts on `nav` and `mouse` layers
+* Swap `space` and `backspace` to match the layout on the [Keyboardio Model 100](https://shop.keyboard.io/products/model-100) I'm already familiar with.
 * Kaleidoscope [MouseKeys Warping](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-MouseKeys.html#warping) with 2x2 grid
 * Implementation differences to accommodate Kaleidoscope firmware and customizations for secondary modifier actions
-* The Keyboardio Atreus has 44 keys and I make regular use of 38 (the extras are redundant)
+* The Keyboardio Atreus has 44 keys and I make regular use of 38. The three outer keys on the last row of each hand are mostly ignored for regular use.
 
-Many of these differences from standard Miryoku are documented as [Alternative Layout](https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts).
+See [Miryoku Alternative Layout](https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts) for some documented differences from default Miryoku layout.
 
 ## Qukeys and Home Row Mods
 
-Until I learned about and started using [home row mods](https://precondition.github.io/home-row-mods), I was mostly unimpressed and ineffective with the Atreus. There just were not enough keys to comfortably accommodate how I was using the keyboard. That changed when I started using home row mods -- i.e., secondary actions on the home row keys that take on modifier keys such as `shift`, `control`, `alt`, when held and normal keys when tapped.
+Until I learned about and started using [home row mods](https://precondition.github.io/home-row-mods), I was mostly unimpressed and ineffective with the Atreus. There just were not enough keys to comfortably accommodate how I was using the keyboard. That changed when I started using home *row mods*, or secondary actions on the home row keys that take on modifier keys such as `shift`, `control`, `alt`, when held and normal keys when tapped.
 
 My only problem was that when typing quickly (and sometimes not so quickly) with the default Kaleidoscope firmware, I would frequently accidentally trigger unintentional modifier actions and run into other problems such as repeated home row keys not getting registered. This is what led me to customize and compile my own firmware.
 
@@ -25,16 +26,16 @@ Home row mods and secondary actions in general, such as secondary actions on the
 
 In order to reduce unintentionally activating modifiers and secondary actions while typing quickly, the following settings are changed from the default behavior:
 
-* `.setMaxIntervalForTapRepeat(timeout)`: set to less than the default and see dynamic adjustments below.
-* `.setOverlapThreshold(percentage)`: set to 100% and still not perfect.
-* `.setMinimumHoldTime(min_hold_time)`: increased significantly from the default.
-* `.setMinimumPriorInterval(min_interval)`: increased significantly from the default.
+* [`.setMaxIntervalForTapRepeat(timeout)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setmaxintervalfortaprepeat-timeout): set to less than the default and see [Dynamic Adjustments](#dynamic-adjustments) below.
+* [`.setOverlapThreshold(percentage)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setoverlapthreshold-percentage): set to 100% and still not perfect.
+* [`.setMinimumHoldTime(min_hold_time)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setoverlapthreshold-percentage): increased significantly from the default.
+* [`.setMinimumPriorInterval(min_interval)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setminimumpriorinterval-min-interval): increased significantly from the default.
 
 ### Dynamic Adjustments
 
-I reduced [`.setMaxIntervalForTapRepeat(timeout)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setmaxintervalfortaprepeat-timeout) to significantly lower values (e.g, 140 ms and below) than the default of 200 ms, in order to mitigate an issue where repeatedly quickly tapped home row keys would not register (e.g., typing "less" would only register one "s"). But this led to another problem: I could not tap and hold a key to have it repeat ([Tap-Repeat Behavior](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#tap-repeat-behaviour)). For most keys this is not a problem, but for keys such as vi-style navigation arrows, backspace, space, etc., this was much more of a nuisance.
+I reduced [`.setMaxIntervalForTapRepeat(timeout)`](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#setmaxintervalfortaprepeat-timeout) to significantly lower values (e.g, less than 140 ms) than the default of 200 ms, in order to mitigate an issue where repeated quickly tapped home row keys would not register (e.g., typing "less" would only register one "s"). But this led to another problem: I could not tap and hold a key to have it repeat ([Tap-Repeat Behavior](https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html#tap-repeat-behaviour)). For most keys not having tap-repeat is not a huge problem, but for keys such as vi-style navigation, `backspace`, `space`, etc., this was much more of a nuisance.
 
-To mitigate issues with the Qukeys Tap-Repeat behavior, I created the ability to dynamically modify some Qukey settings using configured Macros which I map to keys on the Function layer. The Macros are:
+To mitigate issues with the Qukeys Tap-Repeat behavior, I created the ability to dynamically modify some Qukey settings using configured macros which I map to keys on the `fun` layer. The macros are:
 
 * `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO`: type out info on current settings for debugging.
 * `MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC`: decrease the tap-repeat timeout.
@@ -46,14 +47,18 @@ In general, I prefer values of 130-140 ms for the tap-repeat timeout interval. B
 
 ## Layout Experiments
 
+Some alternative layouts to solve specific issues which I'm still experimenting with.
+
 ### Alternative 01
 
-Experimental alternative layout to solve these specific issues with my original layout:
+Experimental alternative layout to solve specific issues with the original layout:
 
-1. Using home row mods for `shift` is often challenging when typing uppercase or mixed case letters that alternate between hands, such as "MACRO". It would be nice to have access to `shift` on the thumb keys that do not conflict with other letters.
-1. Copying and pasting is not easy when the right hand is on the mouse. On a normal QWERTY keyboard this is trivial with the left hand. However, with the original layout above it requires the left hand crossing to the right half of the split keyboard or a difficult contortion or chording two keys with the left hand.
+1. Using home row mods for `shift` is challenging when typing uppercase or mixed case words that alternate between hands, especially words containing letters on the home row. It would be nice to have access to `shift` on the thumb keys.
+1. Copying and pasting is not easy when the right hand is on the mouse. On a normal QWERTY keyboard this is trivial with the left hand. However, with the original layout it requires a difficult contortion or chording two keys with the left hand.
 
-Ideas:
+Updates to address these issues:
 
-* add `shift` as secondary modifier on outter thumb keys, repositioning layer shift keys for `fun` and `media` layers.
-* mirror paste, copy, cut keys from right hand to left hands on the `mouse` layer so these keys can easily be used with either hand when the right hand is on the mouse.
+1. add `shift` as secondary modifier on outer thumb keys (third from center on Atreus), repositioning layer shift keys for `fun` and `media` layers.
+1. mirror the `paste`, `copy`, `cut` keys on the `mouse` layer to left hand so these keys can easily be used with either hand when the right hand is on the mouse.
+
+See `layout_alt01.json` for details.
