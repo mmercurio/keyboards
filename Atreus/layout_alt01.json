@@ -98,10 +98,10 @@
         "categories": ["modifier", "dualuse", "ctrl"]
       },
       {
-        "code": 52271,
+        "code": 52527,
         "baseCode": 29,
-        "label": {"hint": "Layer #4/", "base": "z"},
-        "target": 4,
+        "label": {"hint": "Layer #5/", "base": "z"},
+        "target": 5,
         "rangeStart": 51218,
         "categories": ["layer", "dualuse"]
       },
@@ -135,12 +135,12 @@
         "categories": ["modifier"]
       },
       {
-        "code": 52283,
+        "code": 49466,
         "baseCode": 41,
-        "label": {"hint": "Layer #4/", "base": "Esc"},
-        "target": 4,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "label": {"hint": "Shift/", "base": "Esc"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
       },
       {
         "code": 52028,
@@ -154,10 +154,10 @@
         "categories": ["layer", "dualuse"]
       },
       {
-        "code": 52541,
+        "code": 52285,
         "baseCode": 43,
-        "label": {"hint": "Layer #5/", "base": "Tab"},
-        "target": 5,
+        "label": {"hint": "Layer #4/", "base": "Tab"},
+        "target": 4,
         "rangeStart": 51218,
         "categories": ["layer", "dualuse"]
       },
@@ -178,14 +178,20 @@
         "categories": ["layer", "dualuse"]
       },
       {
-        "code": 52806,
+        "code": 49477,
         "baseCode": 52,
-        "label": {"hint": "Layer #6/", "base": "'"},
-        "target": 6,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "label": {"hint": "Shift/", "base": "'"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
       },
-      {"code": 45, "label": {"base": "-", "shifted": "_"}},
+      {
+        "code": 17456,
+        "label": {"hint": "ShiftTo", "base": "#6"},
+        "target": 6,
+        "rangeStart": 17450,
+        "categories": ["layer", "shifttolayer"]
+      },
       {
         "code": 227,
         "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
@@ -284,8 +290,16 @@
       {"code": 32, "label": {"base": "3", "shifted": "#"}},
       {"code": 49, "label": {"base": "\\", "shifted": "|"}},
       {"code": 56, "label": {"base": "/", "shifted": "?"}},
-      {"code": 40, "label": {"base": "Enter"}},
-      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -331,7 +345,11 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -409,8 +427,16 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {"code": 47, "label": {"base": "[", "shifted": "{"}},
-      {"code": 48, "label": {"base": "]", "shifted": "}"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
       {
         "code": 2099,
         "label": {"hint": {"full": "", "1u": ""}, "base": ":"},
@@ -516,8 +542,6 @@
         "categories": ["with-modifiers", "shift"],
         "baseCode": 56
       },
-      {"code": 40, "label": {"base": "Enter"}},
-      {"code": 44, "label": {"base": "Space"}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -538,8 +562,26 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {"code": 47, "label": {"base": "[", "shifted": "{"}},
-      {"code": 48, "label": {"base": "]", "shifted": "}"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -564,8 +606,8 @@
         "baseCode": 45
       },
       {
-        "code": 0,
-        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
       {
@@ -812,32 +854,28 @@
     ],
     [
       {
-        "code": 18846,
-        "label": {"base": {"full": "Lock Screen", "1u": "Lock"}},
-        "categories": ["platform_apple"]
+        "code": 4125,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "z"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 29
       },
       {
-        "code": 336,
-        "label": {
-          "hint": {"full": "Ctrl+", "1u": "C+"},
-          "base": {"full": "Left Arrow", "1u": "←"}
-        },
-        "categories": ["with-modifiers", "ctrl"],
-        "baseCode": 80
+        "code": 4123,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "x"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 27
       },
       {
-        "code": 19103,
-        "label": {"base": {"full": "Exposé"}},
-        "categories": ["platform_apple"]
+        "code": 4102,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "c"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 6
       },
       {
-        "code": 335,
-        "label": {
-          "hint": {"full": "Ctrl+", "1u": "C+"},
-          "base": {"full": "Right Arrow", "1u": "→"}
-        },
-        "categories": ["with-modifiers", "ctrl"],
-        "baseCode": 79
+        "code": 4121,
+        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "v"},
+        "categories": ["with-modifiers", "gui"],
+        "baseCode": 25
       },
       {
         "code": 20517,
@@ -964,19 +1002,9 @@
         "categories": ["mousekeys"]
       },
       {
-        "code": 4149,
-        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "`"},
-        "categories": ["with-modifiers", "gui"],
-        "baseCode": 53
-      },
-      {
-        "code": 4688,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
-          "base": {"full": "Left Arrow", "1u": "←"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 80
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
         "code": 65535,
@@ -984,25 +1012,24 @@
         "categories": ["blanks"]
       },
       {
-        "code": 4687,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
-          "base": {"full": "Right Arrow", "1u": "→"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 79
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 4143,
-        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "["},
-        "categories": ["with-modifiers", "gui"],
-        "baseCode": 47
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 4144,
-        "label": {"hint": {"full": "Command+", "1u": "⌘+"}, "base": "]"},
-        "categories": ["with-modifiers", "gui"],
-        "baseCode": 48
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
         "code": 20576,
@@ -1511,18 +1538,14 @@
         "categories": ["macros"]
       },
       {
-        "code": 17492,
-        "label": {"hint": "MoveTo", "base": "#0"},
-        "target": 0,
-        "rangeStart": 17492,
-        "categories": ["layer", "movetolayer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 17499,
-        "label": {"hint": "MoveTo", "base": "#7"},
-        "target": 7,
-        "rangeStart": 17492,
-        "categories": ["layer", "movetolayer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
         "code": 65535,
@@ -1532,6 +1555,11 @@
       {"code": 101, "label": {"base": "Menu"}},
       {"code": 44, "label": {"base": "Space"}},
       {"code": 43, "label": {"base": "Tab"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -1554,151 +1582,251 @@
         "categories": ["macros"]
       },
       {
-        "code": 24578,
-        "label": {"hint": "Macro", "base": "#2"},
-        "rangeStart": 24576,
-        "categories": ["macros"]
-      },
-      {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       }
     ],
     [
-      {"code": 20, "label": {"base": "q", "shifted": "Q"}},
-      {"code": 26, "label": {"base": "w", "shifted": "W"}},
-      {"code": 8, "label": {"base": "e", "shifted": "E"}},
-      {"code": 21, "label": {"base": "r", "shifted": "R"}},
-      {"code": 23, "label": {"base": "t", "shifted": "T"}},
       {
-        "code": 0,
-        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
       {
-        "code": 0,
-        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
-        "categories": ["blanks"]
-      },
-      {"code": 28, "label": {"base": "y", "shifted": "Y"}},
-      {"code": 24, "label": {"base": "u", "shifted": "U"}},
-      {"code": 12, "label": {"base": "i", "shifted": "I"}},
-      {"code": 18, "label": {"base": "o", "shifted": "O"}},
-      {"code": 19, "label": {"base": "p", "shifted": "P"}},
-      {"code": 4, "label": {"base": "a", "shifted": "A"}},
-      {"code": 22, "label": {"base": "s", "shifted": "S"}},
-      {"code": 7, "label": {"base": "d", "shifted": "D"}},
-      {"code": 9, "label": {"base": "f", "shifted": "F"}},
-      {"code": 10, "label": {"base": "g", "shifted": "G"}},
-      {
-        "code": 0,
-        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
       {
-        "code": 0,
-        "label": {"base": {"full": "Blocked", "1u": "Blkd"}},
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {"code": 11, "label": {"base": "h", "shifted": "H"}},
-      {"code": 13, "label": {"base": "j", "shifted": "J"}},
-      {"code": 14, "label": {"base": "k", "shifted": "K"}},
-      {"code": 15, "label": {"base": "l", "shifted": "L"}},
-      {"code": 51, "label": {"base": ";", "shifted": ":"}},
-      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
-      {"code": 27, "label": {"base": "x", "shifted": "X"}},
-      {"code": 6, "label": {"base": "c", "shifted": "C"}},
-      {"code": 25, "label": {"base": "v", "shifted": "V"}},
-      {"code": 5, "label": {"base": "b", "shifted": "B"}},
-      {"code": 53, "label": {"base": "`", "shifted": "~"}},
-      {"code": 49, "label": {"base": "\\", "shifted": "|"}},
-      {"code": 17, "label": {"base": "n", "shifted": "N"}},
-      {"code": 16, "label": {"base": "m", "shifted": "M"}},
-      {"code": 54, "label": {"base": ",", "shifted": "<"}},
-      {"code": 55, "label": {"base": ".", "shifted": ">"}},
-      {"code": 56, "label": {"base": "/", "shifted": "?"}},
       {
-        "code": 225,
-        "label": {"base": "Shift"},
-        "location": "left",
-        "categories": ["modifier"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 224,
-        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
-        "location": "left",
-        "categories": ["modifier"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 227,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
-        "location": "left",
-        "categories": ["modifier"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 52539,
-        "baseCode": 41,
-        "label": {"hint": "Layer #5/", "base": "Esc"},
-        "target": 5,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 52028,
-        "baseCode": 42,
-        "label": {
-          "hint": "Layer #3/",
-          "base": {"full": "Backspace", "1u": "Bksp"}
-        },
-        "target": 3,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 52285,
-        "baseCode": 43,
-        "label": {"hint": "Layer #4/", "base": "Tab"},
-        "target": 4,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 51770,
-        "baseCode": 40,
-        "label": {"hint": "Layer #2/", "base": "Enter"},
-        "target": 2,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 51518,
-        "baseCode": 44,
-        "label": {"hint": "Layer #1/", "base": "Space"},
-        "target": 1,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 52806,
-        "baseCode": 52,
-        "label": {"hint": "Layer #6/", "base": "'"},
-        "target": 6,
-        "rangeStart": 51218,
-        "categories": ["layer", "dualuse"]
-      },
-      {"code": 45, "label": {"base": "-", "shifted": "_"}},
-      {
-        "code": 227,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
-        "location": "left",
-        "categories": ["modifier"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {
-        "code": 229,
-        "label": {"base": "Shift"},
-        "location": "right",
-        "categories": ["modifier"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       }
     ],
     [
@@ -1948,7 +2076,7 @@
   "palette": [],
   "deviceConfiguration": {
     "escape_oneshot.cancel_key": "41",
-    "keymap.custom": "20 26 8 21 23 0 0 28 24 12 18 19 49173 49703 49944 49434 10 0 0 11 49438 49951 49696 49220 52271 27 6 25 5 53 49 17 16 54 55 56 225 224 227 52283 52028 52541 51770 51518 52806 45 227 229 47 36 37 38 48 2087 51 2086 2087 2095 2096 42 51 33 34 35 46 224 53 65535 225 227 226 224 53 30 31 32 49 56 40 44 65535 65535 65535 65535 17409 65535 65535 55 39 45 65535 44 65535 65535 65535 65535 2095 2084 2085 2086 2096 65535 65535 65535 65535 65535 47 48 2099 2081 2082 2083 2094 65535 65535 65535 225 227 226 224 2101 2078 2079 2080 2097 2104 40 44 65535 65535 65535 65535 47 48 65535 2086 2087 2093 0 65535 65535 65535 65535 65535 18846 336 19103 335 4144 65535 24 6173 4121 4102 4123 4125 224 226 227 225 4143 65535 65535 80 81 82 79 57 4149 4688 19106 4687 4143 4144 65535 74 78 75 77 73 65535 65535 65535 65535 0 65535 40 42 76 65535 65535 65535 18846 336 19103 335 20517 20576 224 6173 4121 4102 4123 20521 224 226 227 225 20518 20520 0 20484 20482 20481 20488 20522 4149 4688 65535 4687 4143 4144 20576 20500 20497 20498 20504 20576 65535 65535 65535 65535 65535 65535 20546 20545 20548 65535 65535 65535 18846 336 19103 335 65535 4396 224 65535 18544 18543 65535 4396 224 226 227 225 65535 65535 65535 18614 18666 18665 18613 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 18615 18637 18658 65535 65535 65535 69 64 65 66 70 65535 65535 65535 65535 65535 65535 65535 68 61 62 63 71 65535 65535 65535 225 227 226 224 67 58 59 60 72 19101 65535 24581 24579 24580 24578 24582 17492 17499 65535 101 44 43 65535 65535 0 24577 24578 65535 20 26 8 21 23 0 0 28 24 12 18 19 4 22 7 9 10 0 0 11 13 14 15 51 29 27 6 25 5 53 49 17 16 54 55 56 225 224 227 52539 52028 52285 51770 51518 52806 45 227 229 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535",
+    "keymap.custom": "20 26 8 21 23 0 0 28 24 12 18 19 49173 49703 49944 49434 10 0 0 11 49438 49951 49696 49220 52527 27 6 25 5 53 49 17 16 54 55 56 225 224 227 49466 52028 52285 51770 51518 49477 17456 227 229 47 36 37 38 48 2087 51 2086 2087 2095 2096 42 51 33 34 35 46 224 53 65535 225 227 226 224 53 30 31 32 49 56 65535 65535 65535 65535 65535 65535 17409 65535 65535 55 39 45 65535 65535 65535 65535 65535 65535 2095 2084 2085 2086 2096 65535 65535 65535 65535 65535 65535 65535 2099 2081 2082 2083 2094 65535 65535 65535 225 227 226 224 2101 2078 2079 2080 2097 2104 65535 65535 65535 65535 65535 65535 65535 65535 65535 2086 2087 2093 65535 65535 65535 65535 65535 65535 18846 336 19103 335 4144 65535 24 6173 4121 4102 4123 4125 224 226 227 225 4143 65535 65535 80 81 82 79 57 4149 4688 19106 4687 4143 4144 65535 74 78 75 77 73 65535 65535 65535 65535 0 65535 40 42 76 65535 65535 65535 4125 4123 4102 4121 20517 20576 224 6173 4121 4102 4123 20521 224 226 227 225 20518 20520 0 20484 20482 20481 20488 20522 65535 65535 65535 65535 65535 65535 20576 20500 20497 20498 20504 20576 65535 65535 65535 65535 65535 65535 20546 20545 20548 65535 65535 65535 18846 336 19103 335 65535 4396 224 65535 18544 18543 65535 4396 224 226 227 225 65535 65535 65535 18614 18666 18665 18613 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 18615 18637 18658 65535 65535 65535 69 64 65 66 70 65535 65535 65535 65535 65535 65535 65535 68 61 62 63 71 65535 65535 65535 225 227 226 224 67 58 59 60 72 19101 65535 24581 24579 24580 24578 24582 65535 65535 65535 101 44 43 65535 65535 65535 0 24577 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535",
     "layernames": {
       "storageSize": 63,
       "names": [
@@ -1959,7 +2087,7 @@
         "MOUSE",
         "MEDIA",
         "FUN",
-        "NHM",
+        "#7",
         "#8"
       ]
     },
