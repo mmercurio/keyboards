@@ -116,8 +116,41 @@
 enum {
   MACRO_VERSION_INFO,
   MACRO_ANY,
+
+  // These are special Qukeys macros to dynamically control Qukeys tap-repeat behavior
+  // by modifying Qukeys.setMaxIntervalForTapRepeat(timeout) value.
+  // The numeric references are for easily configuring the Macros from Chrysalis editor.
+
+  // Type out current settings for debugging
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO,   // 2
+
+  // Decrease the tap-repeat timeout
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC,    // 3
+
+  // Increase the tap-repeat timeout
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC,    // 4
+
+  // Toggle the tap-repeat timeout off, temporarily setting it to 0 and then back to previous value
+  MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF,  // 5
+
+  // Toggle the tap-repeat timeout to max temporarily. Next activation will return to previous value.
+  MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX, // 6
 };
 
+#define QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT 120
+#define QUKEYS_TAP_REPEAT_TIMEOUT_MIN     100
+#define QUKEYS_TAP_REPEAT_TIMEOUT_MAX     220
+#define QUKEYS_TAP_REPEAT_TIMEOUT_DELTA   10
+
+// Qukeys Tap-Repeat State
+typedef enum {
+  QTR_STATE_ENABLED,
+  QTR_STATE_OFF,
+  QTR_STATE_MAX
+} QtrState_t;
+
+QtrState_t QukeysTapRepeatState = QTR_STATE_ENABLED;
+uint8_t QukeysTapRepeatTimeout = QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT;
 
 /** The Model 100's key layouts are defined as 'keymaps'. By default, there are three
   * keymaps: The standard QWERTY keymap, the "Function layer" keymap and the "Numpad"
@@ -368,6 +401,95 @@ static void anyKeyMacro(KeyEvent &event) {
 }
 
 
+void typeDigit(uint8_t digit) {
+  // Using Macros type the single digit 0-9
+  if (digit > 9) {
+    Macros.type(PSTR("???"));
+    return;
+  }
+  const char* digits[] = {
+    PSTR("0"), PSTR("1"), PSTR("2"), PSTR("3"), PSTR("4"), PSTR("5"), PSTR("6"), PSTR("7"), PSTR("8"), PSTR("9")
+  };
+  Macros.type(digits[digit]);
+}
+
+void typeValue(uint8_t value) {
+  // Using Macros type each digit of the value given an unsigned 8-bit value.
+  // pretty pathetic but for small numbers it's okay.
+  if (value >= 10) {
+    uint8_t digit = value % 10;
+    value = value / 10;
+    typeValue(value); // will never recurse more than 3 times.
+    typeDigit(digit);
+  } else {
+    typeDigit(value);
+  }
+}
+
+void typeQukeysTapRepeatTimeout() {
+  // Using Macros type the value for Qukeys tap-repeat timeout
+  Macros.type(PSTR("Keyboardio Atreus Qukeys tap-repeat: "));
+  typeValue(QukeysTapRepeatTimeout);
+  if (QukeysTapRepeatState == QTR_STATE_OFF) {
+    Macros.type(PSTR(" [TOGGLED OFF]"));
+  }
+  else if (QukeysTapRepeatState == QTR_STATE_MAX) {
+    Macros.type(PSTR(" [TOGGLED MAX]"));
+  }
+  Macros.type(PSTR(" MIN="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_MIN);
+  Macros.type(PSTR(" MAX="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+  Macros.type(PSTR(" DEFAULT="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT);
+  Macros.type(PSTR(" DELTA="));
+  typeValue(QUKEYS_TAP_REPEAT_TIMEOUT_DELTA);
+}
+
+void increaseQukeysTapRepeatTimeout() {
+  // increase the tap-repeat timeout value and switch state to enabled if in another state
+  QukeysTapRepeatTimeout =
+    min(QukeysTapRepeatTimeout + QUKEYS_TAP_REPEAT_TIMEOUT_DELTA, QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+  Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+  QukeysTapRepeatState = QTR_STATE_ENABLED;
+}
+
+void decreaseQukeysTapRepeatTimeout() {
+  // decrease the tap-repeat timeout value and switch state to enabled if in another state
+  QukeysTapRepeatTimeout =
+    max(QukeysTapRepeatTimeout - QUKEYS_TAP_REPEAT_TIMEOUT_DELTA, QUKEYS_TAP_REPEAT_TIMEOUT_MIN);
+  Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+  QukeysTapRepeatState = QTR_STATE_ENABLED;
+}
+
+void toggleOffQukeysTapRepeatTimeout() {
+  // toggle tap-repeat between off/previous value
+  // if toggled off, toggle back to enabled.
+  // if enabled or if toggled to max, toggle to off.
+  if (QukeysTapRepeatState == QTR_STATE_OFF) {
+    Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+    QukeysTapRepeatState = QTR_STATE_ENABLED;
+  }
+  else {
+    Qukeys.setMaxIntervalForTapRepeat(0);
+    QukeysTapRepeatState = QTR_STATE_OFF;
+  }
+}
+
+void toggleMaxQukeysTapRepeatTimeout() {
+  // toggle tap-repeat between max/previous value
+  // if toggled to max, toggle back to enabled
+  // if enabled or togged to off, toggle to max
+  if (QukeysTapRepeatState == QTR_STATE_MAX) {
+    Qukeys.setMaxIntervalForTapRepeat(QukeysTapRepeatTimeout);
+    QukeysTapRepeatState = QTR_STATE_ENABLED;
+  }
+  else {
+    Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_TIMEOUT_MAX);
+    QukeysTapRepeatState = QTR_STATE_MAX;
+  }
+}
+
 /** macroAction dispatches keymap events that are tied to a macro
     to that macro. It takes two uint8_t parameters.
 
@@ -381,15 +503,37 @@ static void anyKeyMacro(KeyEvent &event) {
  */
 
 const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
-  switch (macro_id) {
+  if (keyToggledOn(event.state)) {
+    switch (macro_id) {
 
-  case MACRO_VERSION_INFO:
-    versionInfoMacro(event.state);
-    break;
+    case MACRO_VERSION_INFO:
+      versionInfoMacro(event.state);
+      break;
 
-  case MACRO_ANY:
-    anyKeyMacro(event);
-    break;
+    case MACRO_ANY:
+      anyKeyMacro(event);
+      break;
+
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO:
+      typeQukeysTapRepeatTimeout();
+      break;
+
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC:
+      increaseQukeysTapRepeatTimeout();
+      break;
+
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC:
+      decreaseQukeysTapRepeatTimeout();
+      break;
+
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF:
+      toggleOffQukeysTapRepeatTimeout();
+      break;
+
+    case MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX:
+      toggleMaxQukeysTapRepeatTimeout();
+      break;
+    }
   }
   return MACRO_NONE;
 }
@@ -743,6 +887,13 @@ void setup() {
   // firmware starts with LED effects off. This avoids over-taxing devices that
   // don't have a lot of power to share with USB devices
   DefaultLEDModeConfig.activateLEDModeIfUnconfigured(&LEDOff);
+
+  // Tweak Qukeys to prevent unintended modifiers with home row mods:
+  // https://kaleidoscope.readthedocs.io/en/latest/plugins/Kaleidoscope-Qukeys.html
+  Qukeys.setOverlapThreshold(100);         // default 80
+  Qukeys.setMinimumHoldTime(500);          // default 50
+  Qukeys.setMinimumPriorInterval(350);     // default 75
+  Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT);  // default 200
 }
 
 /** loop is the second of the standard Arduino sketch functions.
