@@ -503,35 +503,37 @@ void toggleMaxQukeysTapRepeatTimeout() {
  */
 
 const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
-  switch (macro_id) {
+  if (keyToggledOn(event.state)) {
+    switch (macro_id) {
 
-  case MACRO_VERSION_INFO:
-    versionInfoMacro(event.state);
-    break;
+    case MACRO_VERSION_INFO:
+      versionInfoMacro(event.state);
+      break;
 
-  case MACRO_ANY:
-    anyKeyMacro(event);
-    break;
+    case MACRO_ANY:
+      anyKeyMacro(event);
+      break;
 
-  case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO:
-    typeQukeysTapRepeatTimeout();
-    break;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INFO:
+      typeQukeysTapRepeatTimeout();
+      break;
 
-  case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC:
-    increaseQukeysTapRepeatTimeout();
-    break;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_INC:
+      increaseQukeysTapRepeatTimeout();
+      break;
 
-  case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC:
-    decreaseQukeysTapRepeatTimeout();
-    break;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_DEC:
+      decreaseQukeysTapRepeatTimeout();
+      break;
 
-  case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF:
-    toggleOffQukeysTapRepeatTimeout();
-    break;
+    case MACRO_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_OFF:
+      toggleOffQukeysTapRepeatTimeout();
+      break;
 
-  case MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX:
-    toggleMaxQukeysTapRepeatTimeout();
-    break;
+    case MACROS_QUKEYS_TAP_REPEAT_TIMEOUT_TOGGLE_MAX:
+      toggleMaxQukeysTapRepeatTimeout();
+      break;
+    }
   }
   return MACRO_NONE;
 }
