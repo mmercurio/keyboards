@@ -2,9 +2,9 @@
   "keymaps": [
     [
       {
-        "code": 17409,
-        "label": {"hint": "LockTo", "base": "#1"},
-        "target": 1,
+        "code": 17413,
+        "label": {"hint": "LockTo", "base": "#5"},
+        "target": 5,
         "rangeStart": 17408,
         "categories": ["layer", "locktolayer"]
       },
@@ -67,7 +67,12 @@
         "location": "left",
         "categories": ["modifier"]
       },
-      {"code": 40, "label": {"base": "Enter"}},
+      {
+        "code": 227,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "left",
+        "categories": ["modifier"]
+      },
       {
         "code": 556,
         "label": {"hint": {"full": "Alt+", "1u": "A+"}, "base": "Space"},
@@ -80,15 +85,18 @@
       {"code": 15, "label": {"base": "l", "shifted": "L"}},
       {"code": 51, "label": {"base": ";", "shifted": ":"}},
       {"code": 52, "label": {"base": "'", "shifted": "\""}},
-      {"code": 78, "label": {"base": {"full": "Page Down", "1u": "PgDn"}}},
       {
-        "code": 52015,
-        "baseCode": 29,
-        "label": {"hint": "Layer #3/", "base": "z"},
+        "code": 52064,
+        "baseCode": 78,
+        "label": {
+          "hint": "Layer #3/",
+          "base": {"full": "Page Down", "1u": "PgDn"}
+        },
         "target": 3,
         "rangeStart": 51218,
         "categories": ["layer", "dualuse"]
       },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
       {"code": 27, "label": {"base": "x", "shifted": "X"}},
       {"code": 6, "label": {"base": "c", "shifted": "C"}},
       {"code": 25, "label": {"base": "v", "shifted": "V"}},
@@ -128,34 +136,41 @@
     ],
     [
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17492,
+        "label": {"hint": "MoveTo", "base": "#0"},
+        "target": 0,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24576,
+        "label": {"hint": "Macro", "base": "#0"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24578,
+        "label": {"hint": "Macro", "base": "#2"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24579,
+        "label": {"hint": "Macro", "base": "#3"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24580,
+        "label": {"hint": "Macro", "base": "#4"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24581,
+        "label": {"hint": "Macro", "base": "#5"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {
         "code": 17154,
@@ -182,9 +197,10 @@
         "categories": ["macros"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 24582,
+        "label": {"hint": "Macro", "base": "#6"},
+        "rangeStart": 24576,
+        "categories": ["macros"]
       },
       {"code": 36, "label": {"base": "7", "shifted": "&"}},
       {"code": 37, "label": {"base": "8", "shifted": "*"}},
@@ -791,14 +807,20 @@
         "baseCode": 27
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20517,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "North-West", "1u": "NW"}
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20521,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "North-East", "1u": "NE"}
+        },
+        "categories": ["mousekeys"]
       },
       {
         "code": 65535,
@@ -879,14 +901,20 @@
         "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20518,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-West", "1u": "SW"}
+        },
+        "categories": ["mousekeys"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 20522,
+        "label": {
+          "hint": {"full": "Mouse Warp", "1u": "Warp"},
+          "base": {"full": "South-East", "1u": "SE"}
+        },
+        "categories": ["mousekeys"]
       },
       {
         "code": 65535,
@@ -956,16 +984,16 @@
         "categories": ["mousekeys"]
       },
       {
-        "code": 20497,
-        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
-        "categories": ["mousekeys"]
-      },
-      {
         "code": 20498,
         "label": {
           "hint": {"full": "Mouse Wheel", "1u": "M.Whl"},
           "base": "Down"
         },
+        "categories": ["mousekeys"]
+      },
+      {
+        "code": 20497,
+        "label": {"hint": {"full": "Mouse Wheel", "1u": "M.Whl"}, "base": "Up"},
         "categories": ["mousekeys"]
       },
       {
@@ -989,9 +1017,9 @@
     ],
     [
       {
-        "code": 17497,
-        "label": {"hint": "MoveTo", "base": "#5"},
-        "target": 5,
+        "code": 17493,
+        "label": {"hint": "MoveTo", "base": "#1"},
+        "target": 1,
         "rangeStart": 17492,
         "categories": ["layer", "movetolayer"]
       },
@@ -1023,22 +1051,29 @@
         },
         "categories": ["consumer"]
       },
-      {"code": 63, "label": {"base": "F6"}},
-      {"code": 64, "label": {"base": "F7"}},
+      {
+        "code": 319,
+        "label": {"hint": {"full": "Ctrl+", "1u": "C+"}, "base": "F6"},
+        "categories": ["with-modifiers", "ctrl"],
+        "baseCode": 63
+      },
+      {
+        "code": 320,
+        "label": {"hint": {"full": "Ctrl+", "1u": "C+"}, "base": "F7"},
+        "categories": ["with-modifiers", "ctrl"],
+        "baseCode": 64
+      },
       {"code": 65, "label": {"base": "F8"}},
       {"code": 66, "label": {"base": "F9"}},
       {"code": 67, "label": {"base": "F10"}},
       {"code": 68, "label": {"base": "F11"}},
       {
-        "code": 18846,
-        "label": {"base": {"full": "Lock Screen", "1u": "Lock"}},
-        "categories": ["platform_apple"]
+        "code": 53596,
+        "label": {"hint": {"full": "Dynamic Macro", "1u": "DM"}, "base": "#0"},
+        "rangeStart": 53596,
+        "categories": ["dynmacros"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
+      {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
       {
         "code": 336,
         "label": {
@@ -1181,15 +1216,16 @@
         "baseCode": 49
       },
       {"code": 77, "label": {"base": "End"}},
-      {"code": 70, "label": {"base": {"full": "Print Screen", "1u": "PrSc"}}},
       {
-        "code": 4688,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
-          "base": {"full": "Left Arrow", "1u": "←"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 80
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 2347,
+        "label": {"hint": {"full": "Ctrl+Shift+", "1u": "C+S+"}, "base": "Tab"},
+        "categories": ["with-modifiers", "ctrl", "shift"],
+        "baseCode": 43
       },
       {
         "code": 19106,
@@ -1197,13 +1233,10 @@
         "categories": ["platform_apple"]
       },
       {
-        "code": 4687,
-        "label": {
-          "hint": {"full": "Alt+Command+", "1u": "A+⌘+"},
-          "base": {"full": "Right Arrow", "1u": "→"}
-        },
-        "categories": ["with-modifiers", "alt", "gui"],
-        "baseCode": 79
+        "code": 299,
+        "label": {"hint": {"full": "Ctrl+", "1u": "C+"}, "base": "Tab"},
+        "categories": ["with-modifiers", "ctrl"],
+        "baseCode": 43
       },
       {
         "code": 4143,
@@ -1263,11 +1296,9 @@
     ],
     [
       {
-        "code": 17492,
-        "label": {"hint": "MoveTo", "base": "#0"},
-        "target": 0,
-        "rangeStart": 17492,
-        "categories": ["layer", "movetolayer"]
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
       },
       {"code": 30, "label": {"base": "1", "shifted": "!"}},
       {"code": 31, "label": {"base": "2", "shifted": "@"}},
@@ -1276,15 +1307,15 @@
       {"code": 34, "label": {"base": "5", "shifted": "%"}},
       {"code": 35, "label": {"base": "6", "shifted": "^"}},
       {
-        "code": 227,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "code": 224,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
         "location": "left",
         "categories": ["modifier"]
       },
       {
-        "code": 231,
-        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
-        "location": "right",
+        "code": 226,
+        "label": {"base": "Alt"},
+        "location": "left",
         "categories": ["modifier"]
       },
       {
@@ -1340,19 +1371,43 @@
         "rangeStart": 49169,
         "categories": ["modifier", "dualuse", "gui"]
       },
-      {"code": 9, "label": {"base": "f", "shifted": "F"}},
+      {
+        "code": 49434,
+        "baseCode": 9,
+        "label": {"hint": "Shift/", "base": "f"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
+      },
       {"code": 10, "label": {"base": "g", "shifted": "G"}},
       {"code": 41, "label": {"base": "Esc"}},
-      {"code": 43, "label": {"base": "Tab"}},
-      {"code": 40, "label": {"base": "Enter"}},
       {
-        "code": 230,
-        "label": {"base": {"full": "AltGr", "1u": "AGr"}},
-        "location": "right",
+        "code": 227,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "left",
         "categories": ["modifier"]
       },
+      {
+        "code": 227,
+        "label": {"base": {"full": "Command", "1u": "Cmd", "short": "⌘"}},
+        "location": "left",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 556,
+        "label": {"hint": {"full": "Alt+", "1u": "A+"}, "base": "Space"},
+        "categories": ["with-modifiers", "alt"],
+        "baseCode": 44
+      },
       {"code": 11, "label": {"base": "h", "shifted": "H"}},
-      {"code": 13, "label": {"base": "j", "shifted": "J"}},
+      {
+        "code": 49438,
+        "baseCode": 13,
+        "label": {"hint": "Shift/", "base": "j"},
+        "modifier": "Shift",
+        "rangeStart": 49169,
+        "categories": ["modifier", "dualuse", "shift"]
+      },
       {
         "code": 49951,
         "baseCode": 14,
@@ -1378,7 +1433,17 @@
         "categories": ["modifier", "dualuse", "ctrl"]
       },
       {"code": 52, "label": {"base": "'", "shifted": "\""}},
-      {"code": 78, "label": {"base": {"full": "Page Down", "1u": "PgDn"}}},
+      {
+        "code": 52064,
+        "baseCode": 78,
+        "label": {
+          "hint": "Layer #3/",
+          "base": {"full": "Page Down", "1u": "PgDn"}
+        },
+        "target": 3,
+        "rangeStart": 51218,
+        "categories": ["layer", "dualuse"]
+      },
       {
         "code": 52015,
         "baseCode": 29,
@@ -1426,10 +1491,140 @@
     ],
     [
       {
+        "code": 17492,
+        "label": {"hint": "MoveTo", "base": "#0"},
+        "target": 0,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
+      },
+      {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 40, "label": {"base": "Enter"}},
+      {
+        "code": 228,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 17499,
+        "label": {"hint": "MoveTo", "base": "#7"},
+        "target": 7,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 228,
+        "label": {"base": {"full": "Control", "1u": "Ctrl"}},
+        "location": "right",
+        "categories": ["modifier"]
+      },
+      {"code": 44, "label": {"base": "Space"}},
+      {"code": 40, "label": {"base": "Enter"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 82, "label": {"base": {"full": "Up Arrow", "1u": "↑"}}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -1480,6 +1675,57 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 44, "label": {"base": "Space"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 80, "label": {"base": {"full": "Left Arrow", "1u": "←"}}},
+      {"code": 81, "label": {"base": {"full": "Down Arrow", "1u": "↓"}}},
+      {"code": 79, "label": {"base": {"full": "Right Arrow", "1u": "→"}}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {
+        "code": 65535,
+        "label": {"base": {"full": "Transparent", "1u": " "}},
+        "categories": ["blanks"]
+      },
+      {"code": 29, "label": {"base": "z", "shifted": "Z"}},
+      {"code": 27, "label": {"base": "x", "shifted": "X"}},
+      {"code": 42, "label": {"base": {"full": "Backspace", "1u": "Bksp"}}},
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -1500,246 +1746,7 @@
         "label": {"base": {"full": "Transparent", "1u": " "}},
         "categories": ["blanks"]
       },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
-      {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
-      },
+      {"code": 56, "label": {"base": "/", "shifted": "?"}},
       {
         "code": 65535,
         "label": {"base": {"full": "Transparent", "1u": " "}},
@@ -1827,9 +1834,11 @@
         "categories": ["blanks"]
       },
       {
-        "code": 65535,
-        "label": {"base": {"full": "Transparent", "1u": " "}},
-        "categories": ["blanks"]
+        "code": 17498,
+        "label": {"hint": "MoveTo", "base": "#6"},
+        "target": 6,
+        "rangeStart": 17492,
+        "categories": ["layer", "movetolayer"]
       },
       {
         "code": 65535,
@@ -2053,7 +2062,7 @@
       1,
       1,
       1,
-      15,
+      1,
       15,
       1,
       15,
@@ -2087,25 +2096,25 @@
     [
       2,
       2,
+      11,
       2,
-      2,
-      2,
+      13,
       2,
       2,
       2,
       2,
       0,
       2,
-      2,
-      2,
+      13,
+      14,
       0,
       0,
       2,
       2,
       0,
       2,
-      2,
-      2,
+      14,
+      14,
       2,
       2,
       2,
@@ -2242,8 +2251,6 @@
       2,
       12,
       2,
-      0,
-      0,
       2,
       2,
       2,
@@ -2251,11 +2258,13 @@
       2,
       2,
       2,
+      2,
+      2,
       0,
       0,
       0,
-      0,
-      0,
+      2,
+      2,
       2,
       15,
       0,
@@ -2274,18 +2283,18 @@
       0,
       15,
       2,
+      0,
+      0,
       2,
       2,
-      2,
-      2,
-      2,
-      2,
+      0,
+      0,
       2
     ],
     [
       0,
       0,
-      15,
+      14,
       11,
       13,
       2,
@@ -2376,16 +2385,16 @@
       15,
       15,
       15,
-      14,
+      1,
       15,
-      14,
       1,
       1,
       1,
       1,
-      14,
-      15,
-      14,
+      1,
+      1,
+      10,
+      1,
       15,
       15,
       15,
@@ -2415,76 +2424,76 @@
       15
     ],
     [
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      10,
-      15,
-      15,
-      15,
-      15,
+      2,
+      2,
+      11,
+      11,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
       0,
-      4,
-      10,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      10,
-      10,
-      15,
-      15,
-      15,
-      15,
-      15,
-      15,
-      10,
-      15,
-      15,
-      15,
-      15
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      0,
+      0,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
     ],
     [
       2,
       2,
-      2,
-      1,
+      11,
+      11,
       2,
       2,
       2,
@@ -2564,39 +2573,39 @@
     {"r": 21, "g": 200, "b": 187, "rgb": "rgb(21, 200, 187)"},
     {"r": 78, "g": 48, "b": 138, "rgb": "rgb(78, 48, 138)"},
     {"r": 45, "g": 93, "b": 43, "rgb": "rgb(45, 93, 43)"},
-    {"r": 0, "g": 4, "b": 0, "rgb": "rgb(0, 4, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
     {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
-    {"r": 14, "g": 14, "b": 0, "rgb": "rgb(14, 14, 0)"},
-    {"r": 0, "g": 238, "b": 238, "rgb": "rgb(0, 238, 238)"},
-    {"r": 0, "g": 0, "b": 224, "rgb": "rgb(0, 0, 224)"},
-    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"}
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 0, "g": 0, "b": 0, "rgb": "rgb(0, 0, 0)"},
+    {"r": 255, "g": 0, "b": 0, "rgb": "rgb(255, 0, 0)"}
   ],
   "deviceConfiguration": {
-    "colormap.map": "15 15 15 11 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 1 15 1 1 1 1 1 15 15 1 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 2 2 2 2 2 2 2 0 2 2 2 0 0 2 2 0 2 2 2 2 2 2 2 2 11 15 15 15 15 15 15 15 15 15 15 11 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 0 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 2 2 2 2 2 2 12 2 2 2 2 2 12 12 12 12 2 2 2 2 2 12 2 0 0 2 2 2 2 2 2 2 0 0 0 0 0 2 15 0 2 2 2 2 0 15 15 0 2 2 2 2 0 15 2 2 2 2 2 2 2 2 0 0 15 11 13 2 1 2 0 1 0 13 13 0 1 0 0 1 0 13 13 2 2 15 15 11 11 1 15 1 1 1 1 1 1 15 1 14 14 15 14 0 2 13 13 15 0 14 14 0 15 13 13 15 0 14 10 2 15 13 13 13 10 2 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 14 15 14 1 1 1 1 14 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 10 15 15 15 15 0 4 10 15 15 15 15 15 15 10 10 15 15 15 15 15 15 10 15 15 15 15 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 15 2 2 2 2 2 2 2 2 2 2 2 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 2 2 2 2",
+    "colormap.map": "15 15 15 11 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 1 15 1 1 1 1 1 1 15 1 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 11 2 13 2 2 2 2 0 2 13 14 0 0 2 2 0 2 14 14 2 2 2 2 2 11 15 15 15 15 15 15 15 15 15 15 11 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 0 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 2 2 2 2 2 2 12 2 2 2 2 2 12 12 12 12 2 2 2 2 2 12 2 2 2 2 2 2 2 2 2 2 0 0 0 2 2 2 15 0 2 2 2 2 0 15 15 0 2 2 2 2 0 15 2 0 0 2 2 0 0 2 0 0 14 11 13 2 1 2 0 1 0 13 13 0 1 0 0 1 0 13 13 2 2 15 15 11 11 1 15 1 1 1 1 1 1 15 1 14 14 15 14 0 2 13 13 15 0 14 14 0 15 13 13 15 0 14 10 2 15 13 13 13 10 2 15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 1 15 1 1 1 1 1 1 10 1 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 2 2 11 11 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 1 1 2 2 1 2 2 2 2 2 2 2 2 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 2 2 2 2 2 2 11 11 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 15 2 2 2 2 2 2 2 2 2 2 2 2 2 0 2 2 0 0 2 2 2 0 2 2 2 2 2 2 2 2 2",
     "escape_oneshot.cancel_key": "41",
     "idleleds.time_limit": "600",
-    "keymap.custom": "17409 30 31 32 33 34 35 224 226 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 4 22 7 9 10 41 227 40 556 11 13 14 15 51 52 78 52015 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 65535 65535 65535 65535 65535 65535 17154 65535 65535 24576 65535 36 37 38 86 65535 17499 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 33 34 35 87 65535 65535 65535 80 81 79 65535 65535 65535 65535 65535 65535 30 31 32 46 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 39 55 85 84 40 65535 58 59 60 61 62 57 65535 65535 65535 63 64 65 66 67 68 43 65535 20481 65535 20546 20576 20521 76 40 65535 65535 2095 2096 47 48 69 74 20484 20482 20488 20545 20517 20522 65535 65535 101 80 81 82 79 65535 65535 77 70 73 65535 20548 20518 65535 65535 65535 65535 18658 18666 18665 18637 18614 18613 18846 65535 65535 65535 65535 65535 20517 65535 20548 20521 65535 65535 65535 65535 65535 65535 18846 65535 336 19103 335 65535 20518 65535 20545 20522 4125 4121 4102 4123 65535 65535 65535 224 226 227 225 65535 4144 65535 20546 20576 20484 20482 20481 20488 65535 65535 65535 65535 4688 65535 4687 4143 65535 65535 65535 65535 20500 20497 20498 20504 65535 65535 17497 58 59 60 61 62 17152 65535 65535 18543 63 64 65 66 67 68 18846 65535 336 19103 335 65535 17153 76 556 18544 65535 2095 2096 47 48 69 74 224 226 227 225 65535 4144 65535 65535 4396 80 81 82 79 65535 4145 77 70 4688 19106 4687 4143 65535 65535 65535 65535 18658 18666 18665 18637 49 2097 17492 30 31 32 33 34 35 227 231 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 49173 49703 49944 9 10 41 43 40 230 11 13 49951 49696 49220 52 78 52015 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 17492 65535 65535 65535 65535 65535 65535 40 228 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 228 44 40 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 29 44 65535 65535 80 81 79 65535 65535 65535 29 27 65535 65535 65535 27 27 42 65535 65535 65535 65535 65535 65535 65535",
+    "keymap.custom": "17413 30 31 32 33 34 35 224 226 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 4 22 7 9 10 41 227 227 556 11 13 14 15 51 52 52064 29 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 17492 24576 24578 24579 24580 24581 17154 65535 65535 24576 24582 36 37 38 86 65535 17499 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 33 34 35 87 65535 65535 65535 80 81 79 65535 65535 65535 65535 65535 65535 30 31 32 46 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 39 55 85 84 40 65535 58 59 60 61 62 57 65535 65535 65535 63 64 65 66 67 68 43 65535 20481 65535 20546 20576 20521 76 40 65535 65535 2095 2096 47 48 69 74 20484 20482 20488 20545 20517 20522 65535 65535 101 80 81 82 79 65535 65535 77 70 73 65535 20548 20518 65535 65535 65535 65535 18658 18666 18665 18637 18614 18613 18846 65535 65535 65535 65535 65535 20517 65535 20548 20521 65535 65535 65535 65535 65535 65535 18846 65535 336 19103 335 65535 20518 65535 20545 20522 4125 4121 4102 4123 20517 20521 65535 224 226 227 225 65535 4144 65535 20546 20576 20484 20482 20481 20488 20518 20522 65535 65535 4688 65535 4687 4143 65535 65535 65535 65535 20500 20498 20497 20504 65535 65535 17493 58 59 60 61 62 17152 65535 65535 18543 319 320 65 66 67 68 53596 70 336 19103 335 65535 17153 76 556 18544 65535 2095 2096 47 48 69 74 224 226 227 225 65535 4144 65535 65535 4396 80 81 82 79 65535 4145 77 65535 2347 19106 299 4143 65535 65535 65535 65535 18658 18666 18665 18637 49 2097 65535 30 31 32 33 34 35 224 226 24577 35 36 37 38 39 49 53 20 26 8 21 23 43 42 44 40 28 24 12 18 19 46 75 49173 49703 49944 49434 10 41 227 227 556 11 49438 49951 49696 49220 52 52064 52015 27 6 25 5 17454 225 229 17454 17 16 54 55 56 45 17492 65535 65535 65535 65535 65535 65535 40 228 65535 65535 65535 65535 65535 65535 65535 17499 65535 65535 65535 65535 65535 65535 228 44 40 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 29 44 65535 65535 80 81 79 65535 65535 65535 29 27 65535 65535 65535 29 27 42 56 65535 65535 65535 65535 56 65535 17492 65535 65535 65535 65535 65535 65535 40 228 65535 65535 65535 65535 65535 65535 65535 17498 65535 65535 65535 65535 65535 65535 228 44 40 65535 65535 82 65535 65535 65535 65535 65535 65535 65535 65535 65535 65535 29 44 65535 65535 80 81 79 65535 65535 65535 29 27 65535 65535 65535 27 27 42 65535 65535 65535 65535 65535 65535 65535",
     "layernames": {
       "storageSize": 136,
-      "names": ["HOME", "NUM", "#2", "MOUSE", "NAV", "ALT", "#6", "GAME"]
+      "names": ["#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7"]
     },
     "keymap.onlyCustom": true,
     "led.brightness": "255",
-    "led_mode.default": "0",
-    "macros.map": "255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 2 35 48 2 35 49 2 35 50 2 35 51 2 35 52 2 35 53 2 35 54 2 35 55",
-    "mousekeys.accel_duration": "1500",
-    "mousekeys.base_speed": "150",
-    "mousekeys.init_speed": "1",
+    "led_mode.default": "14",
+    "macros.map": "6 224 8 64 7 224 2 100 6 227 6 224 8 20 7 224 7 227 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255",
+    "mousekeys.accel_duration": "1100",
+    "mousekeys.base_speed": "200",
+    "mousekeys.init_speed": "5",
     "mousekeys.scroll_interval": "50",
     "oneshot.auto_layers": "0",
     "oneshot.auto_mods": "0",
     "oneshot.double_tap_timeout": "-1",
-    "oneshot.hold_timeout": "250",
-    "oneshot.stickable_keys": "65535",
-    "oneshot.timeout": "2500",
-    "palette": "190 21 21 97 221 69 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 43 95 47 243 145 8 0 0 0 21 200 187 78 48 138 45 93 43 0 4 0 0 0 0 0 0 0 0 0 0 14 14 0 0 238 238 0 0 224 0 0 0",
+    "oneshot.hold_timeout": "150",
+    "oneshot.stickable_keys": "255",
+    "oneshot.timeout": "300",
+    "palette": "190 21 21 97 221 69 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 43 95 47 243 145 8 0 0 0 21 200 187 78 48 138 45 93 43 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0 0",
     "settings.defaultLayer": "0",
     "spacecadet.mode": "1",
     "spacecadet.timeout": "200",
@@ -2644,6 +2653,6 @@
     "eeprom.free": "13840",
     "settings.valid?": "true",
     "settings.version": "1",
-    "settings.crc": "15875/48133"
+    "settings.crc": "15875/15875"
   }
 }

@@ -57,3 +57,24 @@ addition addition addition addition
 goodbye goodbye goodbye goodbye
 goodbye goodbye goodbye goodbye
 
+
+~~~
+Keyboardio Qukeys tap-repeat: 100 [TOGGLED OFF] MIN=100 MAX=220 DEFAULT=120 DELTA=10
+
+turning off tap-repeat completely seems to work best for
+mitigating issues with typing quickly repeated keystrokes.
+
+
+hello hello hello hello hello hello hello
+hello hello hello hello hello hello hello
+less less less less less less less less
+less less less less less less less lsess
+less less less less less less less less
+add add add add add add add add add add
+add add add add add add add add add add
+good good good good good good good godd
+good good good good good good good good
+affection affection food food food
+affection affection food food food
+
+goodbye goodbye goodbye goodbye
