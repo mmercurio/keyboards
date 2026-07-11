@@ -68,7 +68,6 @@ class MMQukeys
     // I perfer to keep the tap-repeat timeout off by default.
     // It needs to bet set to such a high value in order to not
     // interfere with secondary actions it's essentially disabled.
-    // toggleOffQukeysTapRepeatTimeout();
     toggleOffQukeysTapRepeatTimeout();
   }
 
