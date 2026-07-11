@@ -1,0 +1,141 @@
+Problem with home row mods: I must choose between not having
+keys with seconary modifers not repeated when held OR missing
+duplicated keys when typing quickly (e.g. words like "possible"
+get registerd as "posible").
+
+The LOWEST value for tap-repeat that I can have to reliably get
+repeated keys while holding is abougt 160.
+
+HOWEVER, the HIGHEST value for tap-eleat that I can have to not
+get missing keys when typing quickly is about 140!
+
+What about 150? NADA! At 150 I'm still missin repeated typed keys.
+
+
+Keyboardio Atreus Qukeys tap-repeat: 200 MIN=100 MAX=220 DEFAULT=120 DELTA=10
+
+It seems to work okay with tap-repeat set to 200 ms. Previously, I was having issues with
+typing words such as "possible" where the double "s" was not registered.
+Also issuing command double-d from within vim to delete current line.
+
+Other problem words:
+
+hello
+less
+add
+good
+affection
+food
+possible
+school
+
+
+hello hello hello hello hello hello
+less less less less
+add ad add ad add ad add less les les
+les les
+hello les les less les les les les les
+is ess less less less less less less
+hello
+add add add add good good good
+affeciton affection food food
+
+less less less less
+less less less less
+
+helo hello hello hello helo hello
+Keyboardio Qukeys tap-repeat: 130 MIN=100 MAX=220 DEFAULT=120 DELTA=10
+
+hello hello hello hello hello hello
+hello hello hello hello hello hello
+add add add add add add add add
+add add add add add add add add
+less less les less less less less
+less less less less less less less
+affection affection affectoin affection
+affection affection affection affection
+affection affection affection affection
+addition addition addition addition
+addition addition addition addition
+goodbye goodbye goodbye goodbye
+goodbye goodbye goodbye goodbye
+
+possible possible possible possible
+posible posible posible possible (FAIL!)
+possible posible possible posible possible (FAIL!)
+posible possible possible possible possible
+
+school school school school school school
+school school school school school school
+
+possible possible possible possible posible
+
+~~~
+Keyboardio Qukeys tap-repeat: 130 [TOGGLED OFF] MIN=100 MAX=220 DEFAULT=120 DELTA=10
+
+turning off tap-repeat completely seems to work best for
+mitigating issues with typing quickly repeated keystrokes.
+
+
+hello hello hello hello hello hello hello
+hello hello hello hello hello hello hello
+less less less less less less less less
+less less less less less less less lsess
+less less less less less less less less
+add add add add add add add add add add
+add add add add add add add add add add
+good good good good good good good godd
+good good good good good good good good
+affection affection food food food
+affection affection food food food
+
+goodbye goodbye goodbye goodbye
+goodbye goodbye goodbye goodbye goodbye
+possible possible possible possible
+possible possibly possible possibly
+possible possible possible possible
+addition addition addition addition
+school school less less less less
+addition addition addition addition
+
+
+~~~~
+Keyboardio Qukeys tap-repeat: 120 [TOGGLED MAX] MIN=100 MAX=220 DEFAULT=120 DELTA=10
+
+hello hello hello hello hello hello hello
+hello hello hello hello hello hello hello
+hello hello hello hello hello hello hello
+
+less less less less less less less less
+less less less less less less less less
+les less less less less less less less
+less less less less less less less les
+less less less less less less less less
+less less less less less less less less
+
+add add add add add add add add add add
+add add add add add add add add add add
+add add add add add add add add add add
+
+good good good good good good good good
+good good good good good good good good
+good good good good good good good good
+
+affection affection affection affection
+affection affeciton affection affection
+addition addition addition addition
+addition additoin addition addition
+addition addition addition addition
+
+possible possible possible possible
+possible possible possible possible
+possible possible possible possible
+possible possible possible possible
+possible possible possible possible
+
+school school school school school
+school school school school school
+
+goodbye goodbye goodbye goodbye
+u
+

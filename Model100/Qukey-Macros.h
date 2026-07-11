@@ -1,7 +1,7 @@
 // -*- mode: c++ -*-
 
 /**
- * Custom Quekey settings and macros.
+ * Custom Qukey settings and macros.
  */
 
 #define QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT 120
@@ -64,6 +64,11 @@ class MMQukeys
     Qukeys.setMinimumHoldTime(500);
     Qukeys.setMinimumPriorInterval(350);
     Qukeys.setMaxIntervalForTapRepeat(QUKEYS_TAP_REPEAT_TIMEOUT_DEFAULT);
+
+    // I perfer to keep the tap-repeat timeout off by default.
+    // It needs to bet set to such a high value in order to not
+    // interfere with secondary actions it's essentially disabled.
+    toggleOffQukeysTapRepeatTimeout();
   }
 
   void increaseQukeysTapRepeatTimeout() {
